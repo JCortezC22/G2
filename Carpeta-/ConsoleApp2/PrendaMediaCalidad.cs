@@ -8,12 +8,11 @@ namespace ConsoleApp2
 {
     public class PrendaMediaCalidad: Prenda
     {
-        public string Disenio { get; set; }
+        public string Diseño { get; set; }
 
         public override void MostrarDetalles()
         {
-            Console.WriteLine($"Prenda de media calidad, {Disenio}, {Material}, {Color}, {Talla}, {Precio:C}");
-            Console.ReadLine();
+            Console.WriteLine($"Prenda de media calidad, {Diseño}, {Material}, {Color}, {Talla}, {Precio:C}");
         }
     }
 }

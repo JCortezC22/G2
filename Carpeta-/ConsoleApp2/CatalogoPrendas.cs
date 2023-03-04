@@ -43,8 +43,9 @@ namespace ConsoleApp2
                 {
                     prenda.MostrarDetalles();
                 }
+                
             }
-
+            Console.ReadLine();
             Console.WriteLine();
         }
     }

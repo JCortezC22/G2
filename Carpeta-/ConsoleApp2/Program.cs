@@ -14,9 +14,9 @@ namespace ConsoleApp2
             Console.WriteLine("*******TIENDA EL PEPITO*********\n\n\n HECHO POR: JORDY & WENDY");
 
             Console.WriteLine("\nELIGE LA OPCION:\n 1- Prendas de alta calidad " +
-                "\n 2- Prendas de media calidad \n 3- Prendas de baja calidad");
+                "\n 2- Prendas de media calidad \n 3- Prendas de baja calidad\n 4- Salir del programa");
             int opcion = int.Parse(Console.ReadLine());
-            while (opcion <= 0 || opcion >= 3)
+            while (opcion <= 0 || opcion >= 5)
             {
                 Clear();
                 Console.WriteLine("*******TIENDA EL PEPITO*********\n\n\n HECHO POR: JORDY & WENDY\n");
@@ -25,7 +25,7 @@ namespace ConsoleApp2
                 ResetColor();
                 Console.WriteLine("\nELIGE LA OPCIÓN:" +
                     "\n 1- Prendas de alta calidad " +
-                "\n 2- Prendas de media calidad \n 3- Prendas de baja calidad");
+                "\n 2- Prendas de media calidad \n 3- Prendas de baja calidad\n 4- Salir del programa");
                 opcion = int.Parse(Console.ReadLine());
             }
             CatalogoPrendas catalogo = new CatalogoPrendas();
@@ -36,50 +36,119 @@ namespace ConsoleApp2
                 case 1:
                     Clear();
                     Console.WriteLine($"Elegiste la opcion {opcion}\n");
-                    
-                    PrendaAltaCalidad camisa1 = new PrendaAltaCalidad
+
+                    PrendaAltaCalidad[] prendasAltaCalidad = new PrendaAltaCalidad[4];
+
+                    prendasAltaCalidad[0] = new PrendaAltaCalidad
                     {
                         Material = "Algodón",
                         Talla = "M",
                         Color = "Azul",
                         Precio = 49.99M,
                         Marca = "Hugo Boss",
-                        Disenio = "Camisa de vestir"
+                        Diseño = "Camisa de vestir"
                     };
-                    catalogo.AgregarPrenda(camisa1);
-                    catalogo.MostrarCatalogo("AltaCalidad");
-                    break;
-                case 2:
-                    PrendaMediaCalidad pantalon1 = new PrendaMediaCalidad
+                    
+                    prendasAltaCalidad[1] = new PrendaAltaCalidad
                     {
-                        Material = "Poliéster",
+                        Material = "Seda",
+                        Talla = "S",
+                        Color = "Rojo",
+                        Precio = 99.99M,
+                        Marca = "Gucci",
+                        Diseño = "Vestido de gala"
+                    };
+
+                    prendasAltaCalidad[2] = new PrendaAltaCalidad
+                    {
+                        Material = "Lana",
                         Talla = "L",
                         Color = "Negro",
-                        Precio = 29.99M,
-                        Disenio = "Pantalón casual"
+                        Precio = 79.99M,
+                        Marca = "Armani",
+                        Diseño = "Saco de vestir"
                     };
-                    catalogo.AgregarPrenda(pantalon1);
+                    catalogo.AgregarPrenda(prendasAltaCalidad[0]);
+                    catalogo.AgregarPrenda(prendasAltaCalidad[1]);
+                    catalogo.AgregarPrenda(prendasAltaCalidad[2]);
+                    catalogo.MostrarCatalogo("AltaCalidad");
+
+                    break;
+                case 2:
+
+                    PrendaMediaCalidad[] prendaMediaCalidad = new PrendaMediaCalidad[4];
+
+                    prendaMediaCalidad[0] = new PrendaMediaCalidad
+                    {
+                        Material = "Algodón",
+                        Talla = "L",
+                        Color = "Negro",
+                        Precio = 59.99M,
+                        Diseño = "Pantalón casual"
+                    };
+
+                    prendaMediaCalidad[1] = new PrendaMediaCalidad
+                    {
+                        Material = "Mezclilla",
+                        Talla = "M",
+                        Color = "Azul",
+                        Precio = 39.99M,
+                        Diseño = "Pantalón de mezclilla"
+                    };
+
+                    prendaMediaCalidad[2] = new PrendaMediaCalidad
+                    {
+                        Material = "Lino",
+                        Talla = "S",
+                        Color = "Blanco",
+                        Precio = 49.99M,
+                        Diseño = "Pantalón de vestir"
+                    };
+
+                    catalogo.AgregarPrenda(prendaMediaCalidad[0]);
+                    catalogo.AgregarPrenda(prendaMediaCalidad[1]);
+                    catalogo.AgregarPrenda(prendaMediaCalidad[2]);
                     catalogo.MostrarCatalogo("MediaCalidad");
                     break;
                 case 3:
-                    PrendaBajaCalidad vestido1 = new PrendaBajaCalidad
+                    PrendaBajaCalidad[] prendaBajaCalidad = new PrendaBajaCalidad[4];
+
+                    prendaBajaCalidad[0] = new PrendaBajaCalidad
                     {
-                        Material = "Algodón",
-                        Talla = "S",
+                        Material = "Poliéster",
+                        Talla = "M",
                         Color = "Rojo",
-                        Precio = 14.99M,
-                        Estilo = "Vestido de verano"
+                        Precio = 24.99M,
                     };
-                    catalogo.AgregarPrenda(vestido1);
+
+                    prendaBajaCalidad[1] = new PrendaBajaCalidad
+                    {
+                        Material = "Poliéster",
+                        Talla = "M",
+                        Color = "Rojo",
+                        Precio = 24.99M,
+                    };
+
+                    prendaBajaCalidad[2] = new PrendaBajaCalidad
+                    {
+                        Material = "Nylon",
+                        Talla = "L",
+                        Color = "Verde",
+                        Precio = 29.99M,
+                    };
+
+                    catalogo.AgregarPrenda(prendaBajaCalidad[0]);
+                    catalogo.AgregarPrenda(prendaBajaCalidad[1]);
+                    catalogo.AgregarPrenda(prendaBajaCalidad[2]);
                     catalogo.MostrarCatalogo("BajaCalidad");
                     break;
-                default:
-                    Console.WriteLine("Lo siento muchacho esa opcion no esta disponible papu");
-                    Console.ReadLine();
-
+                case 4:
+                    Environment.Exit(0);
                     break;
-
-
+                default:
+                    Console.WriteLine("Lo siento mucho, esa opción no está disponible");
+                    Console.ReadLine();
+                    break;
             }
 
         }
